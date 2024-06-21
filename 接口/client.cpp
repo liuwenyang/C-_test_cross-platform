@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <boost/asio.hpp>
 
 using boost::asio::ip::tcp;
@@ -17,20 +18,26 @@ int main() {
         tcp::socket socket(io_service);
         boost::asio::connect(socket, endpoint_iterator);
 
-        // 接收来自服务器的消息
-        std::vector<char> buf(128);
-        boost::system::error_code error;
-        size_t len = socket.read_some(boost::asio::buffer(buf), error);
+        std::cout << "Connected to server. Listening for messages..." << std::endl;
 
-        if (error == boost::asio::error::eof) {
-            // 连接关闭
-        } else if (error) {
-            throw boost::system::system_error(error); // 其他错误
+        while (true) {
+            // 接收来自服务器的消息
+            std::vector<char> buf(128);
+            boost::system::error_code error;
+            size_t len = socket.read_some(boost::asio::buffer(buf), error);
+
+            if (error == boost::asio::error::eof) {
+                // 连接关闭
+                std::cout << "Connection closed by server." << std::endl;
+                break;
+            } else if (error) {
+                throw boost::system::system_error(error); // 其他错误
+            }
+
+            std::cout << "Received message from server: ";
+            std::cout.write(buf.data(), len);
+            std::cout << std::endl;
         }
-
-        std::cout << "Received message from server: ";
-        std::cout.write(buf.data(), len);
-        std::cout << std::endl;
 
     } catch (std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;

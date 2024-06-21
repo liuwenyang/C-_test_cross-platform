@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <boost/asio.hpp>
 
 using boost::asio::ip::tcp;
@@ -13,15 +14,21 @@ int main() {
 
         std::cout << "Server is running on port 12345..." << std::endl;
 
-        for (;;) {
-            // 创建一个socket对象
-            tcp::socket socket(io_service);
+        // 创建一个socket对象
+        tcp::socket socket(io_service);
 
-            // 等待客户端连接
-            acceptor.accept(socket);
+        // 等待客户端连接
+        acceptor.accept(socket);
+
+        std::cout << "Client connected. You can start sending messages." << std::endl;
+
+        for (;;) {
+            // 从命令行读取消息
+            std::string message;
+            std::cout << "Enter message to send: ";
+            std::getline(std::cin, message);
 
             // 向客户端发送消息
-            std::string message = "Hello from server";
             boost::asio::write(socket, boost::asio::buffer(message));
 
             std::cout << "Sent message to client: " << message << std::endl;
