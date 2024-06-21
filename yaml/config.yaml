@@ -1,0 +1,213 @@
+register:
+  channel0:
+    service_address: 0.0.0.0:9001
+    username: admin
+    password: matrixai@1234
+    bind_hardware: false
+    check_register: false
+    device_id: 0
+    acl_path: /home/storage/config/acl.json
+    param_group: 0
+other:
+  channel0:
+    cylce_read_plc_time: 1
+cube:
+  channel0:
+    center: [-4.150000, 1.700000, 1.400000, 12.780000, 5.760000, 4.460000]
+  channel1:
+    center: [-16.309999, 0.930000, 1.400000, 1.620000, 5.010000, 4.190000]
+model:
+  channel0:
+    anchor_path: /home/storage/models/lidar/anchors.txt
+    class_path: /home/storage/models/lidar/class.txt
+    om_path: /home/storage/models/lidar/alids.engine
+    width: 640
+    height: 640
+    img_width: 1693
+    img_height: 409
+    score_threshold: 0.1
+    class_num: 2
+  channel1:
+    anchor_path: /home/storage/models/lidar/anchors.txt
+    class_path: /home/storage/models/lidar/class.txt
+    om_path: /home/storage/models/lidar/alids.engine
+    width: 640
+    height: 640
+    img_width: 1693
+    img_height: 409
+    score_threshold: 0.1
+    class_num: 2
+lidar:
+  channel0:
+    frequency: 10
+    ip: 172.17.14.66
+    port: 7000
+    model: RSBPEARL_MINI
+    angle_path: /home/storage/config/lidar/rs_bpearl_mini/angle.csv
+    curves_path: ""
+    channel_path: ""
+    curves_rate_path: ""
+    start_angle: 0
+    end_angle: 360
+    resolution_type: 0.5cm
+    intensity_mode: 3
+    min_distance: 0.1
+    max_distance: 150
+    param_pcl_step: 1
+    param_thetaz: 0
+    param_tf: [0.070166, -0.989784, 0.124110, 0.008184, -0.543325, 0.066422, 0.836891, 1.747284, -0.836585, -0.126154, -0.533115, 4.789703, 0.000000, 0.000000, 0.000000, 1.000000]
+    param_ground: [-18, -18, -18, 18, 18, 18]
+    param_group: 0,1
+  channel1:
+    frequency: 10
+    ip: 172.17.14.67
+    port: 7001
+    model: RSBPEARL_MINI
+    angle_path: /home/storage/config/lidar/rs_bpearl_mini/angle.csv
+    curves_path: ""
+    channel_path: ""
+    curves_rate_path: ""
+    start_angle: 0
+    end_angle: 360
+    resolution_type: 0.5cm
+    intensity_mode: 3
+    min_distance: 0.1
+    max_distance: 150
+    param_pcl_step: 1
+    param_thetaz: 0
+    param_tf: [-0.034610, 0.997639, 0.059322, 7.721034, 0.238510, 0.065888, -0.968902, 6.132926, -0.970523, -0.019385, -0.240227, 2.675604, 0.000000, 0.000000, 0.000000, 1.000000]
+    param_ground: [-18, -18, -18, 18, 18, 18]
+    param_group: 0,1
+record:
+  channel0:
+    save_path: /home/storage/data/lidar/
+    read_dir: /home/storage/data/lidar/pcd/2023-06-19/six_high_debug_pcd_11-23-50
+    read_sensor_data_file: /home/storage/data/lidar/
+    tare_ton: 16
+    preload_ton: 54
+    read_index: 0
+    record_auto: 0
+    lidar_type: -1
+  channel1:
+    save_path: /home/storage/data/lidar/
+    read_dir: /home/storage/data/lidar/pcd/
+    read_sensor_data_file: /home/storage
+    tare_ton: 16
+    preload_ton: 54
+    read_index: 0
+    record_auto: 0
+    lidar_type: -1
+liucao:
+  channel0:
+    liucao_type: 0
+    liucao_xmin: -2.15
+    liucao_xmax: -1.16
+    liucao_ymin: 1.7
+    liucao_ymax: 5.76
+    liucao_zmin: 4.40
+    liucao_x_init: 4.300000
+    liucao_x_reset: 4.300000
+    liucao_side: 0
+    head_stop_line: 1.25
+    head_adjust_line: 0.35
+    head_close_line: 0
+    tail_stop_line: 1.8
+    tail_adjust_line: 1.1
+    tail_close_line: 0
+    ymax_ymin_ratio: 1.55
+    car_tail_thickness: 0.4
+    liaowei_gaobang_mei: [0.05000, 0.05000, 0.08000, 0.080]
+    liaowei_liuzhou_mei: [-0.800000, -0.3000, -0.100000, 1.000000]
+    liaowei_gaizhuang_mei: [-0.800000, -0.135000, 0.0500000, 1]
+    liaowei_qiansihouba_mei: [-0.800000, -0.45000, -0.0500, 1]
+    stable_count: 5
+    liaowei_std_dev: 0.5
+    density: 1.62
+    close_tons: 2.0
+    tail_close_tons: 1.25
+    angle_material: [0.720000, 0.800000, 0.800000, 0.800000]
+    pos_lidar_ultrasonic: -1.4
+    gate_type: 0
+    gate_time: 3
+    gate_max_normal: 1
+    gate_max_little: 0
+    gate_sub_delay: 0
+    param_group: 0
+  channel1:
+    liucao_type: 0
+    liucao_xmin: -1.0
+    liucao_xmax: 0.6
+    liucao_ymin: 1.63
+    liucao_ymax: 3.26
+    liucao_zmin: 4.300000
+    liucao_x_init: 4.300000
+    liucao_x_reset: 4.300000
+    liucao_side: 0
+    head_stop_line: 0.65
+    head_adjust_line: 0.15
+    head_close_line: 0
+    tail_stop_line: 0.9
+    tail_adjust_line: 0.3
+    tail_close_line: 0
+    ymax_ymin_ratio: 1.55
+    car_tail_thickness: 0.55
+    liaowei_gaobang_mei: [-0.5, -0.4, -0.2, 5.000000]
+    liaowei_liuzhou_mei: [-0.500000, -0.220000, -0.150000, 5]
+    liaowei_gaizhuang_mei: [-0.700000, -0.600000, -0.400000, 5]
+    liaowei_qiansihouba_mei: [-0.5, -0.4, -0.2, 5]
+    stable_count: 5
+    density: 0.9
+    close_tons: 0.9
+    angle_material: [0.5500000, 0.800000, 0.800000, 0.800000]
+    pos_lidar_ultrasonic: -1.4
+    gate_type: 0
+    gate_time: 3
+    gate_max_normal: 1
+    gate_max_little: 0
+    gate_sub_delay: 0
+    param_group: 1
+base:
+  channel0:
+    type_industry: 0
+    type_run: 0
+    type_shadow: 0
+    om_img: 0
+    plc_ip: 172.17.14.63
+    plc_port: 2002
+    plc_sensor_ip: 172.17.14.63
+    plc_sensor_port: 2001
+    grpc_port: 172.17.14.68:9001
+    load_type: 0
+    weigh_type: 1
+    point_upper_weight: -7.2
+    point_lower_weight: 10.50000
+    init_orient: 0
+    tip_time: 3
+    after_begin: 0
+    after_finish: 0
+    car_type: 0
+    dust_curvature: 0.9
+    lidar_type: -1
+    still_count: 25
+    angle: 1
+    param_group: 0
+  channel1:
+    type_industry: 0
+    type_run: 0
+    type_shadow: 0
+    om_img: 0
+    plc_ip: 172.17.14.63
+    plc_port: 2001
+    plc_sensor_ip: 172.17.14.63
+    plc_sensor_port: 2002
+    grpc_port: 172.17.14.68:9001
+    load_type: 1
+    weigh_type: 1
+    init_orient: 0
+    after_begin: 0
+    after_finish: 0
+    car_type: 0
+    dust_curvature: 0.210000
+    lidar_type: -1
+    still_count: 25
+    param_group: 1

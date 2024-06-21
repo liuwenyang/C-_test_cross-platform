@@ -1,0 +1,56 @@
+#engine实例
+engines:
+  aclEngine: 0
+  aclEngine: 1
+  preEngine: 0
+  preEngine: 1
+  mergeEngine: 0
+  pcltojpgEngine: 0
+  postEngine: 0
+  postEngine: 1
+  saveCloudJpgEngine: 0
+  #saveVideoJpgEngine: 0
+  savepcdEngine: 0
+  guiEngine: 0
+  rsdriverEngine: 0
+  rsdriverEngine: 1
+  readEngine: 0
+  grpcEngine: 0
+  calibrateEngine: 0
+  webEngine: 0
+  #cameraEngine: 0
+#engine连接
+connects:
+  readEngine_0_0: "preEngine_0_0"
+  rsdriverEngine_0_0: "preEngine_0_0"
+  rsdriverEngine_0_1: "savepcdEngine_0_1"
+  rsdriverEngine_0_2: "grpcEngine_0_5"
+  rsdriverEngine_1_0: "preEngine_1_0"
+  rsdriverEngine_1_1: "savepcdEngine_0_1"
+  rsdriverEngine_1_2: "grpcEngine_0_6"
+  preEngine_0_0: "mergeEngine_0_0"
+  preEngine_1_0: "mergeEngine_0_1"
+  mergeEngine_0_0: "calibrateEngine_0_1"
+  #mergeEngine_0_1: "grpcEngine_0_1"
+  mergeEngine_0_2: "savepcdEngine_0_1"
+  mergeEngine_0_3: "pcltojpgEngine_0_0"
+  mergeEngine_0_4: "guiEngine_0_0"
+  calibrateEngine_0_0: "grpcEngine_0_4"
+  pcltojpgEngine_0_0: "aclEngine_0_0"
+  pcltojpgEngine_0_1: "saveCloudJpgEngine_0_2"
+  pcltojpgEngine_0_2: "guiEngine_0_0"
+  aclEngine_0_0: "postEngine_0_0"
+  postEngine_0_0: "saveCloudJpgEngine_0_1"
+  postEngine_0_1: "grpcEngine_0_0"
+  postEngine_0_2: "guiEngine_0_1"
+  guiEngine_0_0: "grpcEngine_0_2"
+  grpcEngine_0_0: "saveCloudJpgEngine_0_0"
+  grpcEngine_0_1: "savepcdEngine_0_0"
+  grpcEngine_0_2: "readEngine_0_0"
+  grpcEngine_0_3: "calibrateEngine_0_0"
+  guiEngine_0_1: "webEngine_0_0"
+  #cameraEngine_0_0: "aclEngine_1_0"
+  #cameraEngine_0_1: "saveVideoJpgEngine_0_2"
+  aclEngine_1_0: "postEngine_1_0"
+  #postEngine_1_0: "saveVideoJpgEngine_0_1"
+  #grpcEngine_0_1: "saveVideoJpgEngine_0_0"
